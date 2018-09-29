@@ -1,6 +1,6 @@
 [user]
-	name = Lukas Besch
-	email = connect@lukasbesch.com
+  name = Lukas Besch
+  email = connect@lukasbesch.com
 [core]
   editor = vi
   excludesfile = ~/.gitignore
