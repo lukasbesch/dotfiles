@@ -1,6 +1,6 @@
 [user]
-  name = Jeff Geerling
-  email = geerlingguy@mac.com
+	name = Lukas Besch
+	email = connect@lukasbesch.com
 [core]
   editor = vi
   excludesfile = ~/.gitignore
@@ -17,7 +17,7 @@
 [push]
   default = simple
 [merge]
-  tool = kdiff3
+  tool = opendiff
 [difftool]
   prompt = false
 [alias]
