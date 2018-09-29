@@ -27,6 +27,11 @@ then
   source ~/.bashrc
 fi
 
+# General aliases
+alias home="cd $HOME"
+alias dev="cd ~/dev"
+alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder;'
+
 # Syntax-highlight code for copying and pasting.
 # Requires highlight (`brew install highlight`).
 function pretty() {
@@ -34,11 +39,13 @@ function pretty() {
 }
 
 # Git aliases.
+alias git=lab
 alias gs='git status'
 alias gc='git commit'
 alias gp='git pull --rebase'
 alias gcam='git commit -am'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+alias kraken="open -na 'GitKraken' --args -p $(pwd)"
 
 # Git upstream branch syncer.
 # Usage: gsync master (checks out master, pull upstream, push origin).
@@ -70,16 +77,16 @@ if [ -f $brew_prefix/etc/bash_completion ]; then
 fi
 
 # Use brew-installed PHP binaries.
-export PATH="$brew_prefix/opt/php70/bin:$PATH"
+export PATH="$brew_prefix/opt/php72/bin:$PATH"
 
 # Use nvm.
-# export NVM_DIR="$HOME/.nvm"
-# . "$brew_prefix/opt/nvm/nvm.sh"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$brew_prefix/opt/nvm/nvm.sh" ] && . "$brew_prefix/nvm.sh"  # This loads nvm
 
 # Use rbenv.
-# if [ -f /usr/local/bin/rbenv ]; then
-#   eval "$(rbenv init -)"
-# fi
+if [ -f /usr/local/bin/rbenv ]; then
+  eval "$(rbenv init -)"
+fi
 
 # Python settings.
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages"
@@ -103,6 +110,12 @@ function denter() {
 
 # Docker image visualization (usage: `dockviz images -t`).
 alias dockviz="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
+
+# Docker compose aliases
+alias dockercompose="docker-compose"
+alias dockercomposer="docker-compose"
+alias docker-composer="docker-compose"
+alias dockerc="docker-compose"
 
 # Delete a given line number in the known_hosts file.
 knownrm() {
