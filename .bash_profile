@@ -117,6 +117,15 @@ alias dockercomposer="docker-compose"
 alias docker-composer="docker-compose"
 alias dockerc="docker-compose"
 
+# Laradock Bedrock wrapper
+laradock() {
+    FOUNDSCRIPT=$(find . -name laradock.sh -maxdepth 2 | sed "s|/[^/]*$||");
+    echo "Using: $FOUNDSCRIPT/laradock.sh";
+    pushd $FOUNDSCRIPT > /dev/null
+    ./laradock.sh $@
+    popd > /dev/null
+}
+
 # Delete a given line number in the known_hosts file.
 knownrm() {
   re='^[0-9]+$'
